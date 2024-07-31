@@ -1,4 +1,4 @@
-package linkedlist;
+package datastructures.linkedlist;
 
 // a linkedlist acts like a set of nested hashmaps: head={"value"=3,"next"={"value"=12,"next"={etc...}}}
 public class LinkedList {

@@ -1,6 +1,4 @@
-package doublylinkedlist;
-
-import linkedlist.LinkedList;
+package datastructures.doublylinkedlist;
 
 public class DoublyLinkedList {
 

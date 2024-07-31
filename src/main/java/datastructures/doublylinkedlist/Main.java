@@ -1,4 +1,4 @@
-package doublylinkedlist;
+package datastructures.doublylinkedlist;
 public class Main {
     public static void main(String[] args) {
         DoublyLinkedList myDLL = new DoublyLinkedList(0);
