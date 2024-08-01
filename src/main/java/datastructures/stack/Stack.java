@@ -1,5 +1,6 @@
 package datastructures.stack;
 
+// LIFO - last in first out
 public class Stack {
 
     private Node top;
