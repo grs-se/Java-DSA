@@ -64,3 +64,14 @@ Steps to insert a Node into a BST:
 - initialise temp as root
 - edge case: if we have empty tree - set root to be newNode
 - edge case: can't insert a number that we already have in the BST
+
+---
+#### Contains
+Steps to check if BST contains value:
+- if root == null return false;
+- temp = root;
+- while temp != null
+  - if < left
+  - else if > right
+  - else == return true
+- return false;
