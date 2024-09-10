@@ -75,3 +75,7 @@ Steps to check if BST contains value:
   - else if > right
   - else == return true
 - return false;
+
+----
+Adding an item to a Binary Search Tree is always log n: false
+- Omega (best case) and Theta (average case) are both (log n). However, worst case is O(n) and Big O measures worst case. The typically treat Binary Search Trees as O(log n) but technically they are O(n). 
