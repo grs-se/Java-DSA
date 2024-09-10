@@ -46,3 +46,21 @@
 - LinkedList and BST are both dynamically sized data structures
 - so if you're keepng your arraulist unsorted then you jsut add a node tot he end, that's o(n), better than bst
 - but if looking up or removing by value, not by index, then it's o(n)
+
+---
+#### Insert
+Steps to insert a Node into a BST:
+- create newNode
+- if root == null then root = newNode
+- temp = root
+- while loop
+  - if newNode == temp return false (see if duplicate)
+  - if < left else > right
+  - if null insert newNode else move to next
+
+---
+- a for loop is great if you know how many steps you are going to iterate through something but we don';t know that here, so this is going to be a while loop
+- temp is moving through tree as we iterate through it.
+- initialise temp as root
+- edge case: if we have empty tree - set root to be newNode
+- edge case: can't insert a number that we already have in the BST
