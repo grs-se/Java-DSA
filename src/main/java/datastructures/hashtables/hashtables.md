@@ -25,3 +25,22 @@
 - we will have a LinkedList at eahc one of these addresses
 - A linkedList is a common way of implementing seperate chaining and putting multiple items at a particular address
 - we have fewer collisions if our table has a prime number of addresses
+
+---
+### Hash Method
+
+```java
+private int hash(String key) {
+    int hash = 0;
+    char[] keyChars = key.toCharArray();
+    for (int i = 0; i < keyChars.length; i++) {
+        int asciiValue = keyChars[i]; // asciiValue for letter 'p' = 112
+        hash = (hash + asciiValue * 23) % dataMap.length; // multiply by prime number 23, or any other prime number, and number will be more random
+        // dataMap.length = 7, when we say modulo 7 it gives us the remainder if you did division. Anything you divide by 7 will have a remainder of 0 at the lowest end, and 6 as the highest number remainder you can have.
+        //  so this makes it so that our range is 0 to 6, and our address space just so happens to be 0 through 6.
+        // So this equation is always going to return a number that is one of the indexes in this array
+    }
+    // So after we go through this for loop for all of those characters at the end of this we will return hash, and that hash will always be a number between 0 and 6. 
+    return hash;
+}
+```
