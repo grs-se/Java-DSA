@@ -44,4 +44,28 @@ public class HashTable {
         // So after we go through this for loop for all of those characters at the end of this we will return hash, and that hash will always be a number between 0 and 6. 
         return hash;
     }
+
+    public void set(String key, int value) {
+        int index = hash(key);
+        Node newNode = new Node(key, value);
+        if (dataMap[index] == null) {
+            dataMap[index] = newNode;
+        } else {
+            Node temp = dataMap[index];
+            while (temp.next != null) {
+                temp = temp.next;
+            }
+            temp.next = newNode;
+        }
+    }
+
+    public int get(String key) {
+        int index = hash(key);
+        Node temp = dataMap[index];
+        while (temp != null) {
+            if (temp.key == key) return temp.value;
+            temp = temp.next;
+        }
+        return 0;
+    }
 }
