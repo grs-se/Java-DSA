@@ -44,3 +44,11 @@ private int hash(String key) {
     return hash;
 }
 ```
+
+---
+### HT: Big O
+- hash method itself is O(1) because it goes through the same number of operations to determine a hash regardless of the number of items that are already in the hash table.
+- set = run through hash method, gives us index of 0, add an item with that in single step, = o(1)
+- get = get("screws"), run it through hash method, gives us index of 6, find it in 1 step.
+- but what if our hashtable doesn't have values at each table index but one table index has a list of lots of values (i.e. is a LinkedList)? This would be O(n)
+- However, when creating a hashtable the assumption is that your hash will create very random addresses and that you'll have a larger address space, a very good hash method that will randomize where these things are put, and becayse of that we treat getting and setting an item in a hashtable as O(1)  
