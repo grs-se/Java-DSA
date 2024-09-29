@@ -151,3 +151,84 @@ public static int addItems(int n) {
 - And that is the power of O(log n).
 - On a graph this is very flat, very efficient. Not as efficient as O(1) of course but it is the next best thing. 
 - Everything in this course will be 1 of these 4 excpet for O(nlog n) that is used in some sorting algorithms, like quick sort and merge sort.
+
+---
+
+## Different Terms for Inputs
+
+```java
+
+public static void printItems(int a, int b) {
+    // O(n)
+    for (int i = 0; i < a; i++) {
+        System.out.println(i);
+    }
+
+    // O(n)
+    for (int j = 0; j < b; j++) {
+        System.out.println(i + " " + j);
+    }
+    // = O(a * b)
+}
+
+```
+- O(n) + O(n) = O(2n) = (drop constant) = 0(n)
+- but that is not correct from an algebraic standpoint, you cannot say that a is equal to n and b is also equal to n. You would have to say that this is O(a) and this is O(b) and when you add them together this becomes O(a + b), and that is as far as you can simplify this. And the reason for that is if a is 1 and b is a billion these would be two very different for loops, and you would have to understand how each one works to understand time complexity of the entire method.
+- likewise if we took these 2 for loops and instead of having them one after the other we had them one inside of the other, this would become O(a * b).
+
+```java
+public static void printItems(int a, int b) {
+    for (int i = 0; i < a; i++) {
+        for (int j = 0; j < b; j++) {
+            System.out.println(j);
+        }
+    }
+}
+
+```
+- we can't just say O(n), we would have to say O(a * b). We have to use different terms for different inputs.
+
+---
+
+## Big O: Array Lists
+
+```java
+
+{11,3,23,7}
+ArrayList<int> myList = new ArrayList<>(); // 11, 3, 23, 7
+myList.add(17);
+
+```
+
+- When we add somethign to the end of this array list it's a pretty simple process because we don't have any re-indexing. All the way down these indexes do not need to be changed.
+- Likewise when we remove this item with te index of 4 and we remove that there is nothing that needs to be re-indexed in the array list, so it is one operation to add something one operation to remove something, so it is O(1)
+- This is different if we do something on the other end of the array list. So we say myList.remove(0), when we remove this the probkem that we have is that this is no longer at the correct index so we need to chagne this index of 1 here to be index of 0, and we need to do this all the way down and touch every item in the array list. 
+- Also if we add an item at the index of 0, we need to change the indexes of the other items in the array, pushing each up, to make room for the new value to be at the index of 0.
+- So in this case n is the number of items in the array list, and because we had to touch each item that means this is O(n). 
+- So it is O(1) on this (far) end when you're adding or removing something but it is O(n) to do those things at the near/left end. So if we remove an item at that end we have to reindex everything and if we add an item back in we have to reindex everything back.
+- So it's O(1) on one end and O(n) on the other.
+- So if we say myList.add(1, 99) - {11, 99, 3, 23, 7} - so you to touch and reindex all items after the insert.
+- So you might say that this should be O(1/2 n) because on average this insert is going to be somewhere in the middle and you only have to touch half the items.
+- However there are two problems with that logic. First BigO measures worst case not average case.
+- But even if O(1/2 n) was our worst case, 1/2 is a constant and we drop constants.
+- So likewise when we go to remove that item we're going to have to reindex everything that comes after it again so it doesn't matter if it is an insert or a remove it is O(n)
+- Now let's look at finding something by value. 
+- Looking for item by value is O(n).
+- But it's different if we're looking by index. If we're looking for the index of 3 we do not have to iterate all the way through this we can go directly to this index and that is O(1)
+
+---
+
+## Big 0: Wrap Up
+
+- O(n2) is a loop within a loop
+- O(n) is Proportional, it will always be a straight line
+- O(log n) is Divide and Conquer, when you hear that it is O(log n)
+- O(n) is constant time.
+
+---
+- Big O Complexity chart
+- O(n), O(log n), O(1) is where we want to stay.
+- common data structure operations
+- variety of data structures compared by time complexity.
+- One of the reasons why we spend all of the time on time complexity over space complexity is that in the entire data structures section all the space complexity is going to be the same.
+- 
