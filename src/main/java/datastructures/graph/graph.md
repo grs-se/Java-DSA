@@ -63,4 +63,16 @@
 - Both the matrix and the list are 0(1) to add an edge
 - To remove an edge the matrix outperforms the list. The matriux is O(1) but the lsit you have to go threough all the edges and a particular vertex might have a 1000 edges
 - 
-  - 
+
+---
+# Quiz: Graph Big O
+
+- Question 1:
+  Adding a Vertex in a Graph with an Adjacency List is O(1):
+  - A vertex is represented as a key in a Hash Map. Key lookup in a Hash Map is O(1).
+- Question 2:
+  Graphs are the go to data structure when you need to represent entities and the relationships between them:
+  - true
+- Question 3:
+  Removing a vertex is O(1):
+  - Finding the vertex is O(1). However, you also have to remove all of the edges associated with the vertex you are removing.
